@@ -2,87 +2,125 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kavya WhatsApp Pro Poster</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800;900&display=swap" rel="stylesheet">
+<title>KAVYA AI PRO POSTER - Auto Namaste</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Noto+Sans+Devanagari:wght@700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
-*{font-family:'Poppins',sans-serif;box-sizing:border-box;margin:0;padding:0}
-body{background:#0f172a;display:flex;justify-content:center}
-.phone{width:100%;max-width:430px;background:#fffdf5;min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.5)}
-.hdr{background:linear-gradient(135deg,#1e1b4b,#4c1d95);padding:12px;color:#fff;text-align:center;position:sticky;top:0;z-index:20}
-.inp{width:100%;padding:11px;border:2px solid #e5e7eb;border-radius:11px;margin-top:5px;font-weight:700;background:#fff;font-size:12px}
-.lbl{font-size:10px;font-weight:900;color:#4c1d95;margin-top:9px;display:block}
+*{font-family:'Poppins','Noto Sans Devanagari',sans-serif;box-sizing:border-box;margin:0;padding:0}
+body{background:#080a12;display:flex;justify-content:center}
+.phone{width:100%;max-width:440px;background:#fffdf5;min-height:100vh;box-shadow:0 0 60px rgba(0,0,0,.6)}
+.loginScreen{position:fixed;inset:0;background:linear-gradient(135deg,#0f0f23,#4c1d95,#c70000);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
+.loginBox{background:#fff;width:100%;max-width:380px;border-radius:24px;padding:20px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.inp{width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;margin-top:6px;font-weight:700;background:#fff;font-size:12px;transition:.2s}
+.inp:focus{border-color:#4c1d95;box-shadow:0 0 0 3px rgba(76,29,149,.15);outline:none}
+.lbl{font-size:10px;font-weight:900;color:#4c1d95;margin-top:10px;display:block;letter-spacing:.5px}
+.btn{width:100%;padding:13px;border:none;border-radius:12px;font-weight:900;cursor:pointer;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+.btn:active{transform:scale(.97)}
+.hdr{background:linear-gradient(135deg,#0f0f23,#4c1d95);padding:12px;color:#fff;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
+.modeGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.modeItem{background:#fff;border:2px solid #e5e7eb;border-radius:12px;padding:8px;text-align:center;cursor:pointer;transition:.2s}
+.modeItem.active{border-color:#10b981;background:linear-gradient(180deg,#dcfce7,#bbf7d0);transform:scale(1.03);box-shadow:0 8px 16px rgba(16,185,129,.25)}
 .pGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px}
-.pItem{background:#fff;border:2px solid #e5e7eb;border-radius:11px;padding:6px;text-align:center;cursor:pointer;min-height:64px}
+.pItem{background:#fff;border:2px solid #e5e7eb;border-radius:11px;padding:6px;text-align:center;cursor:pointer;transition:.2s}
 .pItem.active{border-color:#f59e0b;background:#fef3c7;transform:scale(1.05)}
-.nareGrid{display:flex;gap:6px;overflow-x:auto;padding:8px 0}
-.nareChip{white-space:nowrap;background:#fff;border:2px solid #e5e7eb;border-radius:20px;padding:7px 12px;font-size:10px;font-weight:800;cursor:pointer}
-.nareChip.active{background:#4c1d95;color:#fff;border-color:#4c1d95}
-.tScroll{display:flex;gap:7px;overflow-x:auto;padding:8px 10px}
-.tBox{min-width:68px;height:80px;border-radius:10px;border:3px solid transparent;cursor:pointer;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.1)}
-.tBox.active{border-color:#f59e0b;transform:scale(1.08)}
-.btn{width:100%;padding:12px;border:none;border-radius:11px;font-weight:900;cursor:pointer;margin-top:7px;display:flex;align-items:center;justify-content:center;gap:6px}
-.bioBox{background:#f8fafc;border:2px dashed #10b981;border-radius:12px;padding:10px;margin-top:8px}
+.nareGrid{display:flex;gap:6px;overflow-x:auto;padding:8px 0;scrollbar-width:none}
+.nareChip{white-space:nowrap;background:#fff;border:2px solid #e5e7eb;border-radius:20px;padding:7px 12px;font-size:9px;font-weight:800;cursor:pointer;transition:.2s}
+.nareChip.active{background:#c70000;color:#fff;border-color:#c70000}
+.tScroll{display:flex;gap:8px;overflow-x:auto;padding:8px 10px;scrollbar-width:none}
+.tBox{min-width:88px;height:88px;border-radius:12px;border:3px solid transparent;cursor:pointer;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.12);transition:.2s}
+.tBox.active{border-color:#f59e0b;transform:scale(1.07);box-shadow:0 8px 20px rgba(245,158,11,.3)}
+.aiBadge{background:linear-gradient(90deg,#10b981,#059669);color:#fff;font-size:7px;font-weight:900;padding:3px 7px;border-radius:10px;display:inline-block;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
 </style>
 </head>
 <body>
 <div class="phone">
-<div class="hdr"><b>💎 WHATSAPP PRO POSTER</b><br><small style="font-size:7px">Direct Status + Bio + 50 Nare Auto</small></div>
 
-<div style="padding:11px;background:#fff;margin:8px;border-radius:14px">
-<h3 style="font-size:12px">📝 Candidate Info</h3>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px">
-<div><label class="lbl">Naam *</label><input class="inp" id="cName" placeholder="Ramesh Patel"></div>
-<div><label class="lbl">Pita Ka Naam</label><input class="inp" id="cFather" placeholder="S/o Mohan"></div>
-</div>
-<label class="lbl">Gaon / Ward *</label><input class="inp" id="cGaon" placeholder="Gram Reodar">
-<label class="lbl">Pad</label><select class="inp" id="cPad"><option>SARPANCH PAD HETU</option><option>WARD PANCH</option><option>ZILA PARISHAD</option><option>MLA PRATYASHI</option></select>
-
-<label class="lbl">🔥 Party - Official Chinh</label>
-<div class="pGrid" id="partyGrid"></div>
-
-<label class="lbl">🎯 50+ Professional Nare - Click karo auto ayega</label>
-<div class="nareGrid" id="nareGrid"></div>
-
-<label class="lbl">Selected Nara (Edit bhi kar sakte ho)</label><input class="inp" id="cNara" placeholder="Auto ayega">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div><label class="lbl">Mobile</label><input class="inp" id="cMob" placeholder="9876543210"></div><div><label class="lbl">Photo *</label><input type="file" id="cPhoto" accept="image/*" class="inp" style="padding:6px"></div></div>
-
-<div class="bioBox">
-<b style="font-size:11px;color:#059669">📱 WhatsApp Bio / About Auto Generator</b>
-<p id="bioText" style="font-size:11px;font-weight:700;margin-top:6px;background:#fff;padding:8px;border-radius:8px;border:1px solid #e5e7eb">Bio yahan ayega...</p>
-<button class="btn" style="background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:9px;font-size:11px" onclick="copyBio()">📋 BIO COPY KARO - WhatsApp me Paste Karo</button>
-<small style="font-size:8px;color:#6b7280">WhatsApp → Settings → Profile → About me ye bio paste karo!</small>
+<div id="loginScreen" class="loginScreen">
+<div class="loginBox">
+<div style="text-align:center"><div style="width:68px;height:68px;background:linear-gradient(135deg,#fbbf24,#f59e0b);border-radius:20px;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 12px 24px rgba(251,191,36,.4)">🔐</div><h2 style="font-size:17px;font-weight:900;margin-top:12px;color:#0f0f23">KAVYA AI PRO STUDIO</h2><p style="font-size:9px;color:#6b7280;font-weight:700">AI Auto Namaste + OTP Login</p></div>
+<div id="step1"><label class="lbl">📱 Mobile Number *</label><input class="inp" id="loginPhone" placeholder="9876543210" maxlength="10" type="tel"><button class="btn" style="background:linear-gradient(135deg,#25D366,#128C7E);color:#fff" onclick="sendOTP()">📩 OTP BHEJO</button><p style="font-size:8px;color:#6b7280;text-align:center;margin-top:6px">Demo me OTP screen pe dikhega</p></div>
+<div id="step2" style="display:none"><label class="lbl">🔑 OTP - <span id="otpSentTo" style="color:#10b981"></span></label><input class="inp" id="otpInput" placeholder="6 Digit OTP" maxlength="6" type="tel" style="letter-spacing:8px;text-align:center;font-size:22px;font-weight:900"><div style="background:#fef3c7;border:2px dashed #f59e0b;border-radius:12px;padding:10px;margin-top:10px;text-align:center"><p style="font-size:9px;font-weight:800;color:#92400e">DEMO OTP</p><p id="showOTP" style="font-size:26px;font-weight:900;letter-spacing:6px;color:#000">------</p></div><button class="btn" style="background:linear-gradient(135deg,#4c1d95,#7c3aed);color:#fff" onclick="verifyOTP()">✅ VERIFY & LOGIN</button><button class="btn" style="background:#f1f5f9;color:#475569" onclick="backToStep1()">⬅️ Number Badlo</button></div>
+<div id="step3" style="display:none;text-align:center"><div style="font-size:50px">✅</div><h3 style="font-size:15px;font-weight:900;color:#059669;margin-top:8px">Verified!</h3><button class="btn" style="background:linear-gradient(135deg,#10b981,#059669);color:#fff" onclick="enterApp()">🚀 AI STUDIO KHOLO</button></div>
 </div>
 </div>
 
-<div style="background:#fff;margin:8px;border-radius:14px;padding:6px 0">
-<b style="font-size:11px;padding:0 12px">🎨 15 Golden Design</b><div class="tScroll" id="gallery"></div>
+<div id="mainApp" style="display:none">
+<div class="hdr"><div><b style="font-size:11px">💎 KAVYA AI PRO <span class="aiBadge">AI AUTO</span></b><br><small id="userDisplay" style="font-size:7px;opacity:.8"></small></div><button style="background:#fbbf24;color:#000;border:none;padding:6px 10px;border-radius:20px;font-size:8px;font-weight:900" onclick="logout()">LOGOUT</button></div>
+
+<div style="padding:10px;background:#fff;margin:8px;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.05)">
+<div style="background:linear-gradient(90deg,#dcfce7,#bbf7d0);border:1px solid #86efac;border-radius:10px;padding:8px;display:flex;align-items:center;gap:8px"><div style="font-size:20px">🤖</div><div><b style="font-size:10px;color:#065f46">AI AUTO TRANSFORM ON</b><br><small style="font-size:8px;color:#047857">Jaisa bhi photo dalo → AI apne aap Hath Jodkar Stylish bana dega! Typing karte hi poster live update!</small></div></div>
+
+<label class="lbl">🎨 POSTER STYLE - Professional</label>
+<div class="modeGrid">
+<div class="modeItem active" onclick="setMode('crowd',this)"><div style="font-size:20px">🔥</div><b style="font-size:8px">ALANIYAWAS</b><br><small style="font-size:6px">Crowd + Bheed</small></div>
+<div class="modeItem" onclick="setMode('walking',this)"><div style="font-size:20px">🚶‍♀️</div><b style="font-size:8px">WALKING</b><br><small style="font-size:6px">Road Leader</small></div>
+<div class="modeItem" onclick="setMode('golden',this)"><div style="font-size:20px">👑</div><b style="font-size:8px">GOLDEN</b><br><small style="font-size:6px">Royal Frame</small></div>
 </div>
+
+<label class="lbl">Gram Panchayat / Gat Ka Naam * (Upar ayega - Typing se live change)</label><input class="inp" id="cPanchayat" placeholder="Alaniyawas" value="Alaniyawas">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+<div><label class="lbl">Candidate Naam *</label><input class="inp" id="cName" placeholder="Aapka Naam"></div>
+<div><label class="lbl">🙏 AI Photo - Jaisa bhi dalo *</label><input type="file" id="cPhoto" accept="image/*" class="inp" style="padding:6px;background:#dcfce7;border-color:#10b981"></div>
+</div>
+
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:6px;margin-top:8px;display:flex;gap:6px">
+<div style="font-size:9px;font-weight:800;color:#065f46">🤖 AI Pose:</div>
+<div style="display:flex;gap:4px">
+<button onclick="setPose('namaste')" id="poseNamaste" class="btn" style="padding:5px 8px;font-size:8px;background:#10b981;color:#fff;width:auto;margin:0">🙏 HATH JODE</button>
+<button onclick="setPose('normal')" id="poseNormal" class="btn" style="padding:5px 8px;font-size:8px;background:#fff;border:1px solid #e5e7eb;width:auto;margin:0">👤 NORMAL</button>
+</div>
+</div>
+
+<label class="lbl">🔥 Party - Auto Nara</label><div class="pGrid" id="partyGrid"></div>
+<label class="lbl">🎯 20+ Professional Nare - Click karo typing auto hoga</label><div class="nareGrid" id="nareGrid"></div>
+<label class="lbl">Mukhya Nara - Typing karte hi poster me live ayega *</label><textarea class="inp" id="cNara" rows="2" style="height:68px">जनसेवा को धर्म मानकर, शिक्षा, सड़क, पानी और स्वास्थ्य जैसी मूलभूत सुविधाओं को सशक्त बनाने के लिए प्रतिबद्ध</textarea>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div><label class="lbl">Left Bottom</label><input class="inp" id="cLeft" value="Vote & Support"></div><div><label class="lbl">Right Bottom</label><input class="inp" id="cRight" value="Panchayati Raj Chunav 2026"></div></div>
+</div>
+
+<div style="background:#fff;margin:8px;border-radius:14px;padding:6px 0"><div style="padding:0 12px;display:flex;justify-content:space-between"><b style="font-size:11px">🎨 Color Theme - Typing se auto change</b><small style="font-size:8px;color:#10b981;font-weight:800">Live →</small></div><div class="tScroll" id="gallery"></div></div>
 
 <div style="padding:10px">
-<div id="poster" style="width:100%;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4);background:#fff"></div>
-
-<button class="btn" style="background:linear-gradient(135deg,#25D366,#128C7E);color:#fff" onclick="shareStatus()">📱 DIRECT WHATSAPP STATUS LAGAO</button>
-<button class="btn" style="background:linear-gradient(135deg,#1e1b4b,#4c1d95);color:#fff" onclick="shareWhatsApp()">💬 WHATSAPP PE SHARE KARO</button>
-<button class="btn" style="background:linear-gradient(180deg,#10b981,#059669);color:#fff" onclick="downloadPoster()">⬇️ HD DOWNLOAD</button>
-<button class="btn" style="background:#fef3c7;border:2px solid #fcd34d;color:#92400e" onclick="nextD()">🔄 Dusra Design →</button>
+<div id="poster" style="width:100%;aspect-ratio:4/5;border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.5);background:#000"></div>
+<button class="btn" style="background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;margin-top:12px;font-size:13px" onclick="shareStatus()">📱 DIRECT WHATSAPP STATUS LAGAO</button>
+<button class="btn" style="background:linear-gradient(135deg,#0f0f23,#4c1d95);color:#fff" onclick="shareWA()">💬 WHATSAPP PE SHARE</button>
+<button class="btn" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#000" onclick="downloadPoster()">⬇️ HD POSTER DOWNLOAD - AI PRO</button>
+<button class="btn" style="background:#fff;border:2px solid #e5e7eb;color:#475569" onclick="nextD()">🔄 Dusra Color / Design →</button>
+</div>
   </div></div>
 <script>
+// OTP
+let GENERATED_OTP='',USER_PHONE='',CUR_MODE='crowd',CUR_POSE='namaste';
+const isLogged=localStorage.getItem('kavya_logged')==='yes';
+window.onload=()=>{if(isLogged){document.getElementById('loginScreen').style.display='none';document.getElementById('mainApp').style.display='block';document.getElementById('userDisplay').innerText='👤 +91 '+localStorage.getItem('kavya_phone')+' • AI Verified';}};
+function sendOTP(){const ph=document.getElementById('loginPhone').value.trim();if(ph.length!==10){alert('10 digit number');return;}USER_PHONE=ph;GENERATED_OTP=Math.floor(100000+Math.random()*900000).toString();document.getElementById('showOTP').innerText=GENERATED_OTP;document.getElementById('otpSentTo').innerText='+91 '+ph;document.getElementById('step1').style.display='none';document.getElementById('step2').style.display='block';}
+function verifyOTP(){if(document.getElementById('otpInput').value.trim()!==GENERATED_OTP){alert('Galat OTP: '+GENERATED_OTP);return;}localStorage.setItem('kavya_logged','yes');localStorage.setItem('kavya_phone',USER_PHONE);document.getElementById('step2').style.display='none';document.getElementById('step3').style.display='block';}
+function enterApp(){document.getElementById('loginScreen').style.display='none';document.getElementById('mainApp').style.display='block';document.getElementById('userDisplay').innerText='👤 +91 '+USER_PHONE+' • AI Verified';renderPoster();}
+function backToStep1(){document.getElementById('step2').style.display='none';document.getElementById('step1').style.display='block';}
+function logout(){localStorage.removeItem('kavya_logged');location.reload();}
+
 const PARTIES={
-bjp:{name:'BJP',logo:'https://upload.wikimedia.org/wikipedia/commons/1/19/BJP_Election_Symbol.png',accent:'#7c2d12',tag:'Kamal'},
-inc:{name:'CONGRESS',logo:'https://upload.wikimedia.org/wikipedia/commons/c/cf/Indian_National_Congress_hand_logo.png',accent:'#0a6e31',tag:'Haath'},
-aap:{name:'AAP',logo:'https://upload.wikimedia.org/wikipedia/commons/8/8d/Aam_Aadmi_Party_logo.svg',accent:'#1e3c72',tag:'Jhadu'},
-bsp:{name:'BSP',logo:'https://upload.wikimedia.org/wikipedia/commons/5/58/Elephant_Bahujan_Samaj_Party.png',accent:'#1e3a8a',tag:'Hathi'},
-sp:{name:'SP',logo:'https://upload.wikimedia.org/wikipedia/commons/9/9c/Samajwadi_Party_logo.png',accent:'#c31432',tag:'Cycle'},
-ind:{name:'NIRDALIYA',logo:'https://cdn-icons-png.flaticon.com/512/3237/3237472.png',accent:'#000',tag:'Nirdaliya'},
+bjp:{name:'BJP',emoji:'🪷',accent:'#7c2d12',tag:'Kamal',color:'#ff6a00'},
+inc:{name:'CONGRESS',emoji:'✋',accent:'#0a6e31',tag:'Haath',color:'#0a6e31'},
+aap:{name:'AAP',emoji:'🧹',accent:'#1e3c72',tag:'Jhadu',color:'#1e3c72'},
+ind:{name:'NIRDALIYA',emoji:'⭐',accent:'#000',tag:'Nirdaliya',color:'#000'},
 };
 const NARES=[
-"Gaon Ka Vikas Sabka Saath","Sabka Saath Sabka Vikas","Gaon Ka Beta Gaon Ka Vikas","Vikas Ki Raftaar Badhayenge","Imandari Se Seva Karenge","Shiksha Swasthya Vikas Hamara Lakshya","Har Ghar Vikas Har Dil Me Vishwas","Na Jaat Na Paat Sirf Vikas Ki Baat","Bhrashtachar Mukta Panchayat","Yuwa Soch Gaon Ka Vikas","Mahila Suraksha Gaon Ki Pragati","Kisan Ka Samman Gaon Ka Abhimaan","Swachh Gaon Swasth Gaon","Pani Sadak Bijli Hamari Pehchan","Har Bacche Ko Shiksha Har Haath Ko Kaam","Naya Gaon Nayi Soch","Seva Hi Sankalp Vikas Hi Lakshya","Aapka Vishwas Hamari Taaqat","Jan Jan Ka Vikas","Vote For Vikas Vote For Future","Badlega Gaon Badlegi Soch","Gaon Ki Awaz Vikas Ka Raaj","Sabka Vishwas Sabka Prayas","Atmanirbhar Gaon Hamara Abhiyaan","Digital Gaon Smart Gaon"
+"जनसेवा को धर्म मानकर, शिक्षा, सड़क, पानी और स्वास्थ्य जैसी मूलभूत सुविधाओं को सशक्त बनाने के लिए प्रतिबद्ध",
+"आम्ही नवीन नेता नाही तर नवा विचार आहोत, आमचं ध्येय सत्ता नाही परिवर्तन आहे",
+"गांव का विकास सबका साथ - सबका विश्वास",
+"शिक्षा, सड़क, पानी, स्वास्थ्य - हर घर तक विकास पहुंचाएंगे",
+"ईमानदारी से सेवा, गांव का सर्वांगीण विकास हमारा लक्ष्य",
+"युवा सोच, गांव का विकास - नई पीढ़ी नया विचार",
+"स्वच्छ गांव स्वस्थ गांव - हमारा संकल्प",
+"हर हाथ को काम हर चेहरे पर मुस्कान"
 ];
-
 let CUR_KEY='bjp',CUR_T=0,PHOTO='',CUR_NARE=NARES[0];
 const DESIGNS=[
-{c:'linear-gradient(135deg,#ff6a00,#ff9a00)',n:'BJP Orange'},{c:'linear-gradient(135deg,#0a6e31,#ff9933)',n:'Tiranga'},{c:'linear-gradient(135deg,#1e3c72,#2a5298)',n:'Blue'},{c:'linear-gradient(135deg,#8b0000,#ff4500)',n:'Maroon'},{c:'linear-gradient(135deg,#b8860b,#ffd700)',n:'Golden'},{c:'linear-gradient(135deg,#4c1d95,#7c3aed)',n:'Purple'},{c:'linear-gradient(135deg,#000,#434343)',n:'BlackGold'},{c:'linear-gradient(135deg,#c31432,#240b36)',n:'Red'},{c:'linear-gradient(135deg,#134e13,#22c55e)',n:'Green'},{c:'linear-gradient(135deg,#ff512f,#dd2476)',n:'Pink'},{c:'linear-gradient(135deg,#fc4a1a,#f7b733)',n:'Wave'},{c:'linear-gradient(135deg,#d4a017,#8b4513)',n:'Marwadi'},{c:'linear-gradient(135deg,#fff,#fef3c7)',n:'Clean'},{c:'linear-gradient(135deg,#ec4899,#be185d)',n:'Royal'},{c:'linear-gradient(135deg,#ff9933,#fff,#138808)',n:'TricolorPRO'},
+{n:'CROWD PRO 🔥',c:'crowd',best:true},
+{n:'WALKING ROAD',c:'walking'},
+{n:'BJP Orange',c:'#ff6a00'},{n:'Tiranga',c:'#0a6e31'},{n:'Red Power',c:'#c70000'},{n:'Golden Royal',c:'#b8860b'},{n:'Blue Power',c:'#1e3c72'},{n:'Black Gold',c:'#000'},{n:'Maroon Pro',c:'#4b1a1a'},{n:'Purple Neta',c:'#4c1d95'},
 ];
 
 function renderParties(){
@@ -90,102 +128,114 @@ const g=document.getElementById('partyGrid');g.innerHTML='';
 Object.keys(PARTIES).forEach(k=>{
 const p=PARTIES[k];
 const d=document.createElement('div');d.className='pItem'+(k===CUR_KEY?' active':'');
-d.innerHTML=`<img src="${p.logo}" width="30"><br><b style="font-size:7px">${p.name}</b><small style="font-size:6px;color:#6b7280">${p.tag}</small>`;
-d.onclick=()=>{CUR_KEY=k;document.querySelectorAll('.pItem').forEach(x=>x.classList.remove('active'));d.classList.add('active');renderPoster();};
+d.innerHTML=`<div style="font-size:22px">${p.emoji}</div><b style="font-size:7px">${p.name}</b>`;
+d.onclick=()=>{CUR_KEY=k;document.querySelectorAll('.pItem').forEach(x=>x.classList.remove('active'));d.classList.add('active');CUR_NARE=PARTIES[k].tag+' - '+NARES[0];document.getElementById('cNara').value=CUR_NARE;renderPoster();};
 g.appendChild(d);
 });
 }
 function renderNares(){
 const g=document.getElementById('nareGrid');g.innerHTML='';
 NARES.forEach(n=>{
-const b=document.createElement('div');b.className='nareChip'+(n===CUR_NARE?' active':'');b.innerText='✨ '+n;
+const b=document.createElement('div');b.className='nareChip'+(n===CUR_NARE?' active':'');b.innerText=n.substring(0,26)+'...';b.title=n;
 b.onclick=()=>{CUR_NARE=n;document.getElementById('cNara').value=n;document.querySelectorAll('.nareChip').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderPoster();};
 g.appendChild(b);
 });
-document.getElementById('cNara').value=CUR_NARE;
 }
 function renderG(){
 const g=document.getElementById('gallery');g.innerHTML='';
 DESIGNS.forEach((d,i)=>{
 const b=document.createElement('div');b.className='tBox'+(i===CUR_T?' active':'');
-b.innerHTML=`<div style="background:${d.c};width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:7px;text-align:center;padding:2px">${d.n}</div>`;
+if(d.best){b.innerHTML=`<div style="background:linear-gradient(135deg,#c70000,#ff6a00);width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:8px;text-align:center;padding:4px"><div style="font-size:18px">🔥</div>${d.n}<br><small style="background:#fff;color:#c70000;padding:2px 6px;border-radius:10px;font-size:6px;margin-top:4px">AI BEST</small></div>`;}
+else{b.innerHTML=`<div style="background:${d.c};width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:7px;text-align:center;padding:2px">${d.n}</div>`;}
 b.onclick=()=>{CUR_T=i;document.querySelectorAll('.tBox').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderPoster();};
 g.appendChild(b);
 });
 }
+function setMode(m,el){CUR_MODE=m;document.querySelectorAll('.modeItem').forEach(x=>x.classList.remove('active'));el.classList.add('active');renderPoster();}
+function setPose(p){CUR_POSE=p;document.getElementById('poseNamaste').style.background=p==='namaste'?'#10b981':'#fff';document.getElementById('poseNamaste').style.color=p==='namaste'?'#fff':'#000';document.getElementById('poseNormal').style.background=p==='normal'?'#4c1d95':'#fff';document.getElementById('poseNormal').style.color=p==='normal'?'#fff':'#000';renderPoster();}
 document.getElementById('cPhoto').addEventListener('change',e=>{if(e.target.files[0]){PHOTO=URL.createObjectURL(e.target.files[0]);renderPoster();}});
-['cName','cFather','cGaon','cPad','cNara','cMob'].forEach(id=>document.getElementById(id).addEventListener('input',renderPoster));
+// LIVE TYPING - Jaise hi type karo poster change
+['cPanchayat','cName','cNara','cLeft','cRight'].forEach(id=>{document.getElementById(id).addEventListener('input',renderPoster);});
 
 function renderPoster(){
-const name=document.getElementById('cName').value||'राजेश कुमार शर्मा';
-const gaon=document.getElementById('cGaon').value||'Gram Reodar';
-const pad=document.getElementById('cPad').value||'SARPANCH PAD HETU';
+const panchayat=document.getElementById('cPanchayat').value||'Alaniyawas';
+const name=document.getElementById('cName').value||'';
 const nara=document.getElementById('cNara').value||CUR_NARE;
-const mob=document.getElementById('cMob').value||'98765 43210';
+const leftT=document.getElementById('cLeft').value||'Vote & Support';
+const rightT=document.getElementById('cRight').value||'Panchayati Raj 2026';
 const party=PARTIES[CUR_KEY];
 const d=DESIGNS[CUR_T];
+let bgColor = typeof d.c === 'string' && d.c.startsWith('#')? d.c : party.color;
 
-// WhatsApp Bio Auto Generate
-const bio=`🙏 ${pad} | ${name} | 📍 ${gaon} | ${party.name} ${party.tag} | ✨ ${nara} | 📞 ${mob} | Vote & Support`;
-document.getElementById('bioText').innerText=bio;
+// AI STYLISH PHOTO BOX - Jaisa bhi photo dalo stylish
+let photoHTML='';
+if(!PHOTO){
+photoHTML=`<div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,#fef3c7,#fde68a)"><div style="font-size:60px">🤖</div><small style="font-size:8px;font-weight:800;color:#92400e">AI PHOTO UPLOAD KARO</small><small style="font-size:7px;color:#6b7280">Jaisa bhi photo → Hath Jode banega</small></div>`;
+}else{
+if(CUR_POSE==='namaste'){
+// AI NAMASTE EFFECT - Photo ke upar hath jode overlay
+photoHTML=`<div style="position:relative;width:100%;height:100%;overflow:hidden"><img src="${PHOTO}" style="width:100%;height:100%;object-fit:cover;object-position:top center;filter:contrast(1.1) saturate(1.1)"><div style="position:absolute;bottom:0;left:0;right:0;height:38%;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.1) 100%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px"><div style="background:rgba(255,255,255,.9);border-radius:30px;padding:6px 14px;box-shadow:0 8px 20px rgba(0,0,0,.3);display:flex;align-items:center;gap:6px;border:2px solid #fbbf24"><span style="font-size:24px">🙏</span><span style="font-size:8px;font-weight:900;color:#000">NAMASTE • AI STYLISH</span></div></div><div style="position:absolute;top:6px;right:6px;background:#10b981;color:#fff;font-size:6px;font-weight:900;padding:3px 7px;border-radius:10px">AI AUTO</div></div>`;
+}else{
+photoHTML=`<img src="${PHOTO}" style="width:100%;height:100%;object-fit:cover;object-position:top center">`;
+}
+}
 
+if(CUR_MODE==='crowd' || DESIGNS[CUR_T].c==='crowd'){
 document.getElementById('poster').innerHTML=`
-<div style="background:${d.c};padding:11px;display:flex;align-items:center;gap:9px;border-bottom:4px solid #fbbf24">
-<img src="${party.logo}" style="width:48px;height:48px;background:#fff;border-radius:50%;padding:4px;border:2px solid #fbbf24">
-<div style="flex:1"><h1 style="font-size:15px;font-weight:900;color:#fff;line-height:1">${pad}</h1><p style="font-size:7px;font-weight:800;color:#fff;opacity:.9">${party.name} • ${party.tag} • ${gaon.toUpperCase()}</p></div>
-<div style="background:#fff;color:#000;font-size:6px;font-weight:900;padding:4px 8px;border-radius:20px">HD</div>
+<div style="width:100%;height:100%;position:relative;background:radial-gradient(circle at 50% 5%,#ffcc80 0%,#ff8c00 25%,#1f1f1f 100%);overflow:hidden">
+<div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700') center/cover;opacity:.5;filter:blur(.8px) brightness(1.1)"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,140,0,.35) 0%,rgba(0,0,0,.15) 35%,rgba(0,0,0,.85) 100%)"></div>
+<div style="position:absolute;top:16px;left:0;background:linear-gradient(90deg,#c70000,#ff1a1a);color:#fff;padding:9px 28px 9px 16px;border-radius:0 8px 8px 0;box-shadow:0 8px 24px rgba(199,0,0,.6);clip-path:polygon(0 0,93% 0,100% 50%,93% 100%,0 100%);z-index:3;animation:slideIn.5s ease">
+<div style="font-size:10px;font-weight:800;opacity:.9;letter-spacing:1px">ग्राम पंचायत</div>
+<div style="font-size:21px;font-weight:900;line-height:1.1">${panchayat}</div>
 </div>
-<div style="padding:12px;text-align:center;background:radial-gradient(circle at 50% 0%,#fff 0%,#fefce8 100%)">
-<div style="width:160px;height:160px;border-radius:50%;margin:0 auto;padding:4px;background:linear-gradient(135deg,#ffd700,#b8860b)">
-<div style="width:100%;height:100%;border-radius:50%;overflow:hidden;background:#fff;border:3px solid #fff">
-${PHOTO?`<img src="${PHOTO}" style="width:100%;height:100%;object-fit:cover">`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:50px;background:#f1f5f9">👤</div>`}
+<div style="position:absolute;top:84px;left:10px;right:10px;z-index:2;text-align:center;transform:rotate(-2deg)">
+<p style="font-size:18px;font-weight:900;line-height:1.25;text-shadow:0 2px 0 #fff,0 4px 20px rgba(0,0,0,.3)">
+<span style="color:#000;background:#fff;padding:1px 6px;border-radius:5px;box-shadow:0 2px 8px rgba(0,0,0,.2)">जनसेवा</span> <span style="color:#fff;text-shadow:0 2px 4px #000">को धर्म मानकर,</span><br>
+<span style="color:#fff;background:linear-gradient(90deg,#c70000,#ff4500);padding:3px 10px;border-radius:8px;box-shadow:0 6px 16px rgba(199,0,0,.4);display:inline-block;margin:4px 0;font-size:19px">${nara.split(',')[0]||'शिक्षा, सड़क, पानी और स्वास्थ्य'}</span><br>
+<span style="color:#fff;font-size:12px;background:rgba(0,0,0,.6);padding:2px 8px;border-radius:10px;backdrop-filter:blur(4px)">${nara.substring(0,70)}...</span>
+</p>
+</div>
+<div style="position:absolute;bottom:0;left:0;right:0;height:68%;display:flex;align-items:flex-end;justify-content:center;z-index:4">
+<div style="height:100%;width:85%;max-width:320px;position:relative;filter:drop-shadow(0 -12px 30px rgba(0,0,0,.8))">
+<div style="width:100%;height:100%;overflow:hidden;border-radius:20px 20px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.5);border:3px solid rgba(255,255,255,.3);border-bottom:none">
+${photoHTML}
 </div>
 </div>
-<h2 style="font-size:24px;font-weight:900;color:${party.accent};margin-top:12px;line-height:1">${name.toUpperCase()}</h2>
-<p style="font-size:10px;font-weight:800;color:#475569;margin-top:2px">📍 ${gaon}</p>
-<div style="margin-top:10px;background:linear-gradient(180deg,#fffbeb,#fde68a);border:2px solid #f59e0b;border-radius:12px;padding:9px">
-<p style="font-size:6px;font-weight:900;color:#92400e;letter-spacing:1px">${party.name} KA SANKALP</p>
-<p style="font-size:13px;font-weight:900;color:#78350f">✨ ${nara} ✨</p>
 </div>
-<div style="margin-top:10px;background:#0f172a;border-radius:11px;padding:9px;display:flex;justify-content:space-between;border:2px solid #fbbf24">
-<div style="color:#fff;display:flex;align-items:center;gap:5px"><span style="background:#fbbf24;color:#000;width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center">📞</span><b style="font-size:11px">${mob}</b></div>
-<div style="color:#fff;display:flex;align-items:center;gap:5px"><span style="background:#fbbf24;color:#000;width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center">🗳️</span><b style="font-size:9px">${party.tag}</b></div>
+<div style="position:absolute;bottom:10px;left:10px;z-index:5;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);color:#fff;padding:6px 12px;border-radius:20px;font-size:9px;font-weight:800;border:1px solid rgba(255,255,255,.25)">${leftT}</div>
+<div style="position:absolute;bottom:10px;right:10px;z-index:5;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);color:#fff;padding:6px 10px;border-radius:12px;font-size:8px;font-weight:700;text-align:right;border:1px solid rgba(255,255,255,.25);line-height:1.2">${rightT}<br><span style="color:#fbbf24">${party.emoji} ${party.tag}</span></div>
+${name?`<div style="position:absolute;bottom:48px;left:50%;transform:translateX(-50%);z-index:5;background:linear-gradient(90deg,#c70000,#ff6a00);color:#fff;padding:7px 20px;border-radius:30px;font-size:12px;font-weight:900;box-shadow:0 8px 20px rgba(0,0,0,.5);white-space:nowrap;border:2px solid #fff">${name.toUpperCase()} ${party.emoji}</div>`:''}
+</div>`;
+}else if(CUR_MODE==='walking'){
+document.getElementById('poster').innerHTML=`
+<div style="width:100%;height:100%;background:#fff;position:relative;overflow:hidden">
+<div style="background:${bgColor};padding:8px 12px;display:flex;justify-content:space-between;align-items:center"><span style="color:#fde68a;font-size:13px;font-weight:900">${panchayat}</span><span style="color:#fff;font-size:8px;background:rgba(255,255,255,.2);padding:3px 8px;border-radius:10px">${party.emoji} ${party.name}</span></div>
+<div style="position:relative;height:88%;background:linear-gradient(180deg,#f8fafc,#e2e8f0)">
+<div style="position:absolute;inset:0;opacity:.15;background:repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 40px)"></div>
+<div style="position:absolute;left:0;bottom:70px;width:48%;height:75%;z-index:2;border-radius:0 20px 20px 0;overflow:hidden;box-shadow:10px 10px 30px rgba(0,0,0,.2);border:3px solid #fff;border-left:none">${photoHTML}</div>
+<div style="position:absolute;right:6px;top:20px;width:54%;z-index:1"><div style="background:#fff;border-radius:50%;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.15);border:2px dashed #d1d5db;text-align:center"><p style="font-size:9px;font-weight:700">आम्ही नवीन</p><p style="font-size:16px;font-weight:900;color:${bgColor};line-height:1.1">नेता नाही तर<br>नवा विचार</p><p style="font-size:9px;font-weight:700;margin-top:4px">${nara.substring(0,50)}</p></div></div>
+<div style="position:absolute;bottom:0;left:0;right:0;background:${bgColor};padding:10px"><h2 style="font-size:16px;font-weight:900;color:#fde68a">${name} | ${panchayat}</h2><p style="font-size:7px;color:#fff;margin-top:4px">${leftT} • ${rightT}</p></div>
 </div>
-<p style="font-size:6px;color:#9ca3af;margin-top:8px">WhatsApp Status Ready • ${d.n} • KAVYA STUDIO</p>
+</div>`;
+}else{
+document.getElementById('poster').innerHTML=`
+<div style="width:100%;height:100%;background:#fff">
+<div style="background:${bgColor};padding:10px;display:flex;align-items:center;gap:8px"><div style="width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px">${party.emoji}</div><div><h1 style="font-size:13px;font-weight:900;color:#fde68a">${panchayat.toUpperCase()}</h1><p style="font-size:7px;color:#fff">${party.name} • AI PRO</p></div></div>
+<div style="padding:16px;text-align:center"><div style="width:150px;height:150px;border-radius:50%;margin:0 auto;padding:4px;background:linear-gradient(135deg,#ffd700,#b8860b);box-shadow:0 10px 30px rgba(0,0,0,.2)"><div style="width:100%;height:100%;border-radius:50%;overflow:hidden;background:#fff;border:3px solid #fff">${photoHTML}</div></div><h2 style="font-size:20px;font-weight:900;color:${bgColor};margin-top:12px">${name.toUpperCase()||'AAPKA NAAM'}</h2><p style="font-size:10px;color:#475569">${panchayat}</p><div style="margin-top:10px;background:#fef3c7;border:2px solid #fcd34d;border-radius:12px;padding:10px"><p style="font-size:11px;font-weight:900;color:${bgColor}">${nara}</p></div><p style="font-size:8px;color:#6b7280;margin-top:8px">📍 ${leftT} | ${rightT} | AI Stylish • ${party.emoji}</p></div>
 </div>`;
 }
-
+}
 function nextD(){CUR_T=(CUR_T+1)%DESIGNS.length;document.querySelectorAll('.tBox').forEach((x,i)=>x.classList.toggle('active',i===CUR_T));renderPoster();}
-
-async function downloadPoster(){
-const canvas=await html2canvas(document.getElementById('poster'),{scale:3,useCORS:true});
-const link=document.createElement('a');link.download=`Poster-${Date.now()}.png`;link.href=canvas.toDataURL();link.click();
-return canvas;
-}
-
+async function downloadPoster(){const c=await html2canvas(document.getElementById('poster'),{scale:3,useCORS:true,backgroundColor:null});const a=document.createElement('a');a.download=`KAVYA-AI-PRO-${Date.now()}.png`;a.href=c.toDataURL('image/png');a.click();}
 async function shareStatus(){
-const canvas=await html2canvas(document.getElementById('poster'),{scale:3,useCORS:true});
-canvas.toBlob(async (blob)=>{
+const c=await html2canvas(document.getElementById('poster'),{scale:3,useCORS:true});
+c.toBlob(async (blob)=>{
 const file=new File([blob],`poster.png`,{type:'image/png'});
-if(navigator.canShare && navigator.canShare({files:[file]})){
-try{await navigator.share({files:[file],title:'Mera Chunav Poster',text:document.getElementById('bioText').innerText});}catch(e){downloadPoster(); alert('Download ho gaya! Ab WhatsApp Status me jake ye photo lagao!');}
-}else{
-downloadPoster(); alert('Poster Download ho gaya! Ab WhatsApp kholo → Status → My Status → Ye photo select karo → Laga do! 🙏');
-}
+if(navigator.canShare && navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'AI Poster',text:document.getElementById('cNara').value});}catch(e){downloadPoster();}}else{downloadPoster(); alert('Download ho gaya! WhatsApp Status me lagao!');}
 });
 }
-
-function shareWhatsApp(){
-const bio=document.getElementById('bioText').innerText;
-const url=`https://wa.me/?text=${encodeURIComponent(bio + '\n\nMera Poster Dekho 👇 (Photo Download karke bhejo)')}`;
-window.open(url,'_blank');
-}
-
-function copyBio(){
-const bio=document.getElementById('bioText').innerText;
-navigator.clipboard.writeText(bio).then(()=>alert('✅ Bio Copy Ho Gaya! WhatsApp → Settings → Profile → About me paste karo!'));
-}
-
+function shareWA(){const t=document.getElementById('cNara').value;window.open(`https://wa.me/?text=${encodeURIComponent('🙏 '+document.getElementById('cPanchayat').value+'\n'+t+'\n\nMera AI Poster Dekho 👇')}`,'_blank');}
 renderParties();renderNares();renderG();renderPoster();
 </script>
 </body>
