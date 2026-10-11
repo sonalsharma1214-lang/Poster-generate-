@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kavya 15 Poster Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*{font-family:'Poppins',sans-serif;box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;display:flex;justify-content:center}
+.phone{width:100%;max-width:430px;background:#f8fafc;min-height:100vh;box-shadow:0 0 60px rgba(0,0,0,.5)}
+.header{background:linear-gradient(135deg,#1e1b4b,#4c1d95);padding:14px;color:#fff;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.tabBtn{padding:10px 16px;border-radius:12px;border:2px solid #e5e7eb;background:#fff;font-weight:800;font-size:11px;white-space:nowrap;cursor:pointer}
+.tabBtn.active{background:#4c1d95;color:#fff;border-color:#4c1d95}
+.inp{width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;margin-top:6px;font-weight:700;background:#fff}
+.label{font-size:10px;font-weight:900;color:#4c1d95;margin-top:10px;display:block}
+.partyGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
+.partyItem{background:#fff;border:2px solid #e5e7eb;border-radius:12px;padding:8px;text-align:center;cursor:pointer}
+.partyItem.active{border-color:#f59e0b;background:#fef3c7;transform:scale(1.05)}
+.partyItem img{width:32px;height:32px;object-fit:contain}
+.partyItem b{font-size:8px;display:block}
+.tGallery{display:flex;gap:10px;overflow-x:auto;padding:10px 14px}
+.tThumb{min-width:80px;height:100px;border-radius:12px;border:3px solid transparent;cursor:pointer;overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,.15)}
+.tThumb.active{border-color:#f59e0b;transform:scale(1.05)}
+.btn{width:100%;padding:14px;border:none;border-radius:14px;font-weight:900;cursor:pointer;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="phone">
+<div class="header">
+<div><b>KAVYA POSTER STUDIO</b><br><small style="font-size:9px;opacity:.8">15 DESIGN PRO</small></div>
+<div style="background:#fbbf24;color:#000;font-size:9px;font-weight:900;padding:6px 10px;border-radius:20px" id="freeBadge">🎁 1 FREE</div>
+</div>
+
+<div style="display:flex;gap:8px;padding:10px;overflow-x:auto">
+<div class="tabBtn active" onclick="switchCat('sarpanch',this)">🗳️ Sarpanch</div>
+<div class="tabBtn" onclick="switchCat('mla',this)">⭐ MLA/MP</div>
+<div class="tabBtn" onclick="switchCat('shaadi',this)">💍 Shaadi</div>
+</div>
+
+<div style="padding:14px;background:#fff;margin:10px;border-radius:18px">
+<h3 style="font-size:13px;color:#1e1b4b">📝 Details Bharo - Full Professional</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+<div><label class="label">Candidate Naam *</label><input class="inp" id="cName" placeholder="Ramesh Patel"></div>
+<div><label class="label">Pita Ji Ka Naam</label><input class="inp" id="cFather" placeholder="S/o Mohan Patel"></div>
+</div>
+<label class="label">Gaon / Ward / Kshetra *</label>
+<input class="inp" id="cGaon" placeholder="Gram Panchayat Reodar">
+<label class="label">Pad / Post *</label>
+<select class="inp" id="cPad">
+<option>Sarpanch Pad Hetu</option>
+<option>Ward Panch Pad Hetu</option>
+<option>Panchayat Samiti Sadasya</option>
+<option>Zila Parishad Sadasya</option>
+<option>MLA Pratyashi</option>
+</select>
+<label class="label">🟠 Party / Logo Chuno</label>
+<div class="partyGrid">
+<div class="partyItem active" onclick="selectParty('bjp','https://upload.wikimedia.org/wikipedia/commons/1/19/BJP_Election_Symbol.png',this)"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/BJP_Election_Symbol.png"><b>BJP</b></div>
+<div class="partyItem" onclick="selectParty('congress','https://upload.wikimedia.org/wikipedia/commons/c/cf/Indian_National_Congress_hand_logo.png',this)"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Indian_National_Congress_hand_logo.png"><b>Congress</b></div>
+<div class="partyItem" onclick="selectParty('aap','https://upload.wikimedia.org/wikipedia/commons/8/8d/Aam_Aadmi_Party_logo.svg',this)"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Aam_Aadmi_Party_logo.svg"><b>AAP</b></div>
+<div class="partyItem" onclick="selectParty('bsp','https://upload.wikimedia.org/wikipedia/commons/5/58/Elephant_Bahujan_Samaj_Party.png',this)"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Elephant_Bahujan_Samaj_Party.png"><b>BSP</b></div>
+</div>
+<label class="label">Nara / Chunav Chinha *</label>
+<input class="inp" id="cNara" placeholder="Gaon Ka Vikas">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div><label class="label">Mobile</label><input class="inp" id="cMob" placeholder="98765 43210"></div>
+<div><label class="label">Photo *</label><input type="file" id="cPhoto" accept="image/*" class="inp" style="padding:8px"></div>
+</div>
+</div>
+
+<div style="background:#fff;margin:10px;border-radius:18px;padding:8px 0">
+<div style="padding:0 14px;display:flex;justify-content:space-between"><b style="font-size:12px">🎨 15 Design - Chuno</b><small style="font-size:9px;color:#10b981;font-weight:800">Scroll →</small></div>
+<div class="tGallery" id="gallery"></div>
+</div>
+<div style="padding:14px">
+<div id="posterCapture" style="width:100%;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3)"></div>
+<button class="btn" style="background:linear-gradient(180deg,#10b981,#059669);color:#fff" onclick="downloadHD()">⬇️ DOWNLOAD HD POSTER</button>
+<button class="btn" style="background:#fef3c7;border:2px solid #fcd34d;color:#92400e" onclick="nextTemplate()">🔄 Dusra Design Dekho →</button>
+  </div><div id="premModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999;justify-content:center;align-items:center;padding:14px">
+<div style="background:#fff;border-radius:22px;padding:20px;width:100%;max-width:400px;text-align:center">
+<h2 style="font-weight:900">💎 PREMIUM 15 DESIGN</h2>
+<p style="font-size:10px;color:#6b7280">FREE khatam - ₹99 me unlimited</p>
+<button class="btn" style="background:linear-gradient(180deg,#fbbf24,#f59e0b);color:#000;margin-top:12px" onclick="buyNow()">💳 ₹99 PAY - PREMIUM UNLOCK</button>
+<button class="btn" style="background:#f1f5f9" onclick="document.getElementById('premModal').style.display='none'">Close</button>
+</div>
+</div>
+</div>
+<script>
+let CUR_CAT='sarpanch',CUR_PARTY='bjp',CUR_PARTY_LOGO='https://upload.wikimedia.org/wikipedia/commons/1/19/BJP_Election_Symbol.png';
+let CUR_T=0,FREE_LEFT=parseInt(localStorage.getItem('free15')||'1'),IS_PREM=localStorage.getItem('is_prem15')==='yes',PHOTO_URL='';
+const TEMPS=[
+{id:0,name:'BJP Royal',color:'linear-gradient(135deg,#ff6a00,#ff9a00)',accent:'#1e1b4b'},
+{id:1,name:'Congress',color:'linear-gradient(135deg,#0a6e31,#ff9933)',accent:'#0a6e31'},
+{id:2,name:'3D Orange',color:'linear-gradient(135deg,#ff512f,#dd2476)',accent:'#7c2d12'},
+{id:3,name:'Blue Power',color:'linear-gradient(135deg,#1e3c72,#2a5298)',accent:'#1e3c72'},
+{id:4,name:'Green Vikas',color:'linear-gradient(135deg,#134e13,#2d8a2d)',accent:'#134e13'},
+{id:5,name:'Royal Maroon',color:'linear-gradient(135deg,#8b0000,#ff4500)',accent:'#8b0000'},
+{id:6,name:'Golden',color:'linear-gradient(135deg,#b8860b,#ffd700)',accent:'#1e1b4b'},
+{id:7,name:'Purple Neta',color:'linear-gradient(135deg,#4c1d95,#7c3aed)',accent:'#4c1d95'},
+{id:8,name:'Black Gold',color:'linear-gradient(135deg,#000,#434343)',accent:'#fbbf24'},
+{id:9,name:'Tricolor',color:'linear-gradient(135deg,#ff9933,#fff,#138808)',accent:'#000'},
+{id:10,name:'Red Josh',color:'linear-gradient(135deg,#c31432,#240b36)',accent:'#c31432'},
+{id:11,name:'Wave',color:'linear-gradient(135deg,#fc4a1a,#f7b733)',accent:'#1e1b4b'},
+{id:12,name:'Marwadi',color:'linear-gradient(135deg,#d4a017,#8b4513)',accent:'#8b4513'},
+{id:13,name:'Clean',color:'linear-gradient(135deg,#ffffff,#e5e7eb)',accent:'#1e293b'},
+{id:14,name:'Shaadi Royal',color:'linear-gradient(135deg,#ec4899,#be185d)',accent:'#831843'},
+];
+function renderGallery(){
+const g=document.getElementById('gallery');g.innerHTML='';
+TEMPS.forEach((t,i)=>{
+const d=document.createElement('div');d.className='tThumb'+(i===CUR_T?' active':'');
+d.innerHTML=`<div style="background:${t.color};width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:9px;text-align:center;padding:4px">${t.name}</div>`;
+d.onclick=()=>{CUR_T=i;document.querySelectorAll('.tThumb').forEach(x=>x.classList.remove('active'));d.classList.add('active');renderPoster();};
+g.appendChild(d);
+});
+}
+function switchCat(cat,el){CUR_CAT=cat;document.querySelectorAll('.tabBtn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderPoster();}
+function selectParty(name,logo,el){CUR_PARTY=name;CUR_PARTY_LOGO=logo;document.querySelectorAll('.partyItem').forEach(p=>p.classList.remove('active'));el.classList.add('active');renderPoster();}
+document.getElementById('cPhoto').addEventListener('change',e=>{if(e.target.files[0]){PHOTO_URL=URL.createObjectURL(e.target.files[0]);renderPoster();}});
+['cName','cFather','cGaon','cPad','cNara','cMob'].forEach(id=>{document.getElementById(id).addEventListener('input',renderPoster);});
+function renderPoster(){
+const name=document.getElementById('cName').value||'RAMESH KUMAR PATEL';
+const father=document.getElementById('cFather').value||'S/o Mohan Lal Patel';
+const gaon=document.getElementById('cGaon').value||'Gram Panchayat Reodar';
+const pad=document.getElementById('cPad').value||'Sarpanch Pad Hetu';
+const nara=document.getElementById('cNara').value||'Gaon Ka Vikas, Sabka Saath';
+const mob=document.getElementById('cMob').value||'98765 43210';
+const t=TEMPS[CUR_T];
+const logoHtml=CUR_PARTY_LOGO?`<img src="${CUR_PARTY_LOGO}" style="width:46px;height:46px;background:#fff;border-radius:50%;padding:4px;border:2px solid #fbbf24">`:'';
+document.getElementById('posterCapture').innerHTML=`
+<div style="background:${t.color};padding:14px;color:${t.id===13?'#000':'#fff'};display:flex;justify-content:space-between;align-items:center">
+<div><b style="font-size:13px">${pad.toUpperCase()}</b><br><small style="font-size:9px;font-weight:700">${gaon}</small></div>
+<div style="text-align:center">${logoHtml}<div style="font-size:7px;font-weight:900;margin-top:2px">${CUR_PARTY.toUpperCase()}</div></div>
+</div>
+<div style="padding:14px;text-align:center;background:#fff">
+<div style="width:150px;height:150px;border-radius:50%;border:5px solid ${t.accent};margin:0 auto;overflow:hidden;background:#e5e7eb">
+${PHOTO_URL?`<img src="${PHOTO_URL}" style="width:100%;height:100%;object-fit:cover">`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:50px">👤</div>`}
+</div>
+<h2 style="font-size:24px;font-weight:900;color:${t.accent};margin-top:10px">${name.toUpperCase()}</h2>
+<p style="font-size:11px;font-weight:800;color:#475569">${father}</p>
+<p style="font-size:12px;font-weight:900;color:${t.accent};margin-top:4px;background:#f1f5f9;display:inline-block;padding:4px 12px;border-radius:20px">📍 ${gaon}</p>
+<div style="margin-top:10px;background:linear-gradient(90deg,#fef3c7,#fde68a);border:1.5px solid #f59e0b;border-radius:14px;padding:10px">
+<p style="font-size:13px;font-weight:900;color:#92400e">✨ ${nara} ✨</p>
+<small style="font-size:9px;color:#78350f;font-weight:700">Chinha: ${CUR_PARTY} • Design ${CUR_T+1}/15</small>
+</div>
+<div style="margin-top:12px;display:flex;justify-content:center;gap:6px">
+<span style="background:#0f172a;color:#fff;padding:6px 12px;border-radius:20px;font-size:10px;font-weight:800">📞 ${mob}</span>
+<span style="background:#dcfce7;color:#166534;padding:6px 12px;border-radius:20px;font-size:10px;font-weight:800">✓ ${pad}</span>
+</div>
+</div>`;
+}
+function nextTemplate(){CUR_T=(CUR_T+1)%TEMPS.length;document.querySelectorAll('.tThumb').forEach((x,i)=>{x.classList.toggle('active',i===CUR_T)});renderPoster();}
+function downloadHD(){
+if(FREE_LEFT<=0&&!IS_PREM){document.getElementById('premModal').style.display='flex';return;}
+html2canvas(document.getElementById('posterCapture'),{scale:3,useCORS:true}).then(c=>{
+const a=document.createElement('a');a.download=`Poster-${TEMPS[CUR_T].name}-${Date.now()}.png`;a.href=c.toDataURL();a.click();
+if(!IS_PREM&&FREE_LEFT>0){FREE_LEFT--;localStorage.setItem('free15',FREE_LEFT);document.getElementById('freeBadge').innerText=`🎁 ${FREE_LEFT} FREE`;}
+});
+}
+function buyNow(){
+const link=`upi://pay?pa=BHARATPE2R0A0O8R5032718@unitype&pn=KavyaPoster&am=99&cu=INR&tn=Premium15`;
+location.href=link;
+setTimeout(()=>{if(confirm('Payment ho gaya?')){localStorage.setItem('is_prem15','yes');IS_PREM=true;document.getElementById('freeBadge').innerText='💎 PREMIUM';document.getElementById('premModal').style.display='none';}},2000);
+}
+renderGallery();renderPoster();
+</script>
+</body>
+</html>
